@@ -155,7 +155,7 @@ export async function callGeminiAPI(
     throw new Error("Gemini API key not found. Please set the GEMINI_API_KEY environment variable.");
   }
 
-  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey;
+  const url = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=" + apiKey;
   
   const payload = {
     contents: [{

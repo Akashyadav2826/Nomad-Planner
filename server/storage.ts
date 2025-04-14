@@ -78,14 +78,14 @@ export class MemStorage implements IStorage {
       username: "alexmorgan",
       password: "password123", // In a real app, this would be hashed
       fullName: "Alex Morgan",
-      currentLocation: "Bali, Indonesia",
+      currentLocation: "Bangalore, India",
       profileImage: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&q=80"
     });
     
     // Add demo user preferences
     this.createOrUpdateUserPreferences({
       userId: 1,
-      timeZone: "Asia/Bali",
+      timeZone: "Asia/Kolkata",
       budgetLimit: 2500,
       preferredWorkHours: {
         monday: { start: "09:00", end: "17:00" },
@@ -94,7 +94,7 @@ export class MemStorage implements IStorage {
         thursday: { start: "09:00", end: "17:00" },
         friday: { start: "09:00", end: "13:00" },
       },
-      nextDestination: "Lisbon, Portugal",
+      nextDestination: "Goa, India",
       nextDestinationDates: {
         start: "2025-04-15",
         end: "2025-06-20"
@@ -106,8 +106,8 @@ export class MemStorage implements IStorage {
       userId: 1,
       title: "Team Weekly Sync",
       description: "Regular team meeting",
-      startTime: new Date("2025-03-15T09:00:00"),
-      endTime: new Date("2025-03-15T10:00:00"),
+      startTime: new Date("2025-03-15T09:00:00+05:30"), // IST timezone
+      endTime: new Date("2025-03-15T10:00:00+05:30"),
       location: "Zoom",
       eventType: "work",
       isConflict: false
@@ -115,11 +115,11 @@ export class MemStorage implements IStorage {
     
     this.createCalendarEvent({
       userId: 1,
-      title: "Flight to Bali",
-      description: "Departure from previous location",
-      startTime: new Date("2025-03-15T13:00:00"),
-      endTime: new Date("2025-03-15T15:30:00"),
-      location: "Denpasar Airport (DPS)",
+      title: "Train to Mumbai",
+      description: "Business trip to Mumbai",
+      startTime: new Date("2025-03-15T13:00:00+05:30"), // IST timezone
+      endTime: new Date("2025-03-15T17:30:00+05:30"),
+      location: "Bangalore City Railway Station",
       eventType: "travel",
       isConflict: false
     });
@@ -128,8 +128,8 @@ export class MemStorage implements IStorage {
       userId: 1,
       title: "Client Presentation",
       description: "Present design concepts to client",
-      startTime: new Date("2025-03-15T17:00:00"),
-      endTime: new Date("2025-03-15T18:00:00"),
+      startTime: new Date("2025-03-15T17:00:00+05:30"), // IST timezone
+      endTime: new Date("2025-03-15T18:00:00+05:30"),
       location: "Google Meet",
       eventType: "work",
       isConflict: false
@@ -138,9 +138,9 @@ export class MemStorage implements IStorage {
     this.createCalendarEvent({
       userId: 1,
       title: "Team Meeting",
-      description: "Weekly team sync",
-      startTime: new Date("2025-04-15T09:00:00-05:00"), // EST timezone
-      endTime: new Date("2025-04-15T10:00:00-05:00"),
+      description: "Weekly team sync with US team",
+      startTime: new Date("2025-04-15T20:00:00+05:30"), // IST timezone (morning EST)
+      endTime: new Date("2025-04-15T21:00:00+05:30"),
       location: "Zoom",
       eventType: "work",
       isConflict: true
@@ -148,11 +148,11 @@ export class MemStorage implements IStorage {
     
     this.createCalendarEvent({
       userId: 1,
-      title: "Flight to Lisbon",
-      description: "International flight",
-      startTime: new Date("2025-04-15T07:00:00-05:00"), // EST timezone
-      endTime: new Date("2025-04-15T19:00:00+00:00"), // BST timezone
-      location: "JFK to LIS",
+      title: "Flight to Goa",
+      description: "Weekend getaway",
+      startTime: new Date("2025-04-15T17:00:00+05:30"), // IST timezone
+      endTime: new Date("2025-04-15T19:00:00+05:30"),
+      location: "Bangalore Airport (BLR) to Goa Airport (GOI)",
       eventType: "travel",
       isConflict: true
     });
@@ -160,22 +160,22 @@ export class MemStorage implements IStorage {
     // Add some coworking spaces
     this.createCoworkingSpace({
       userId: 1,
-      name: "Outpost Canggu",
-      location: "Canggu, Bali",
-      price: "$15/day",
-      rating: "4.8",
-      amenities: ["Fast WiFi", "Pool", "Cafe"],
-      internetSpeed: "150 Mbps"
+      name: "WeWork Galaxy",
+      location: "Residency Road, Bangalore",
+      price: "₹800/day",
+      rating: "4.6",
+      amenities: ["Fast WiFi", "Meeting Rooms", "Cafe", "24/7 Access"],
+      internetSpeed: "300 Mbps"
     });
     
     this.createCoworkingSpace({
       userId: 1,
-      name: "Dojo Bali",
-      location: "Canggu, Bali",
-      price: "$20/day",
-      rating: "4.7",
-      amenities: ["150mbps", "Standing desks"],
-      internetSpeed: "150 Mbps"
+      name: "91springboard",
+      location: "Koramangala, Bangalore",
+      price: "₹650/day",
+      rating: "4.5",
+      amenities: ["200mbps", "Standing desks", "Game Room", "Events"],
+      internetSpeed: "200 Mbps"
     });
     
     // Add some budget entries
