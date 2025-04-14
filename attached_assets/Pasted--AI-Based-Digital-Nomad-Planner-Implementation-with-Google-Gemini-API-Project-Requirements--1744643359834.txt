@@ -1,0 +1,159 @@
+# AI-Based Digital Nomad Planner Implementation with Google Gemini API
+
+## Project Requirements
+
+I need to develop an AI-powered Digital Nomad Planner that integrates work scheduling with travel management. The application should use Google's Gemini API for intelligent features and deliver six core modules that address digital nomad needs.
+
+## Core AI Functionality Requirements
+
+### 1. Smart Calendar Integration
+- **Task**: Implement AI that can analyze calendar events, identify conflicts between work and travel plans, and suggest optimal scheduling solutions.
+- **Gemini Implementation**:
+  - Generate context-aware suggestions for rescheduling conflicts
+  - Analyze patterns in user scheduling to predict future conflicts
+  - Provide personalized recommendations based on historical preferences
+
+**Example Prompt**:
+```
+You are an AI assistant for a digital nomad planner application. Analyze these calendar events:
+1. Work meeting on April 15, 2025 at 9:00 AM EST
+2. Flight from New York to London on April 15, 2025, departing at 7:00 AM EST, arriving 7:00 PM BST
+
+Identify any conflicts, explain the specific issues, and suggest three alternative scheduling options that minimize disruption. Format your response as JSON with appropriate fields for conflict details and suggested alternatives.
+```
+
+### 2. Co-working Space Recommendation Engine
+- **Task**: Create an AI system that recommends suitable co-working spaces based on user preferences, location, and requirements.
+- **Gemini Implementation**:
+  - Generate personalized co-working space recommendations
+  - Provide detailed analysis of spaces matching user criteria
+  - Compare options based on multiple factors
+
+**Example Prompt**:
+```
+You are an AI assistant for a digital nomad planner application. Based on the following user preferences and location data:
+- Location: Lisbon, Portugal
+- Internet speed minimum: 100 Mbps
+- Preferred noise level: Moderate
+- Budget: €20/day maximum
+- Needed amenities: standing desk, private phone booth
+
+Recommend three suitable co-working spaces, with detailed information about each option including why it matches the user's criteria, any potential drawbacks, and a final ranking. Format your response as JSON with structured fields for each recommendation.
+```
+
+### 3. Time Zone Management Assistant
+- **Task**: Develop AI functionality that helps users navigate time zone differences and optimize their schedule accordingly.
+- **Gemini Implementation**:
+  - Generate optimal meeting times across multiple time zones
+  - Provide personalized advice for managing jet lag and productivity
+  - Create conversational interfaces for time zone queries
+
+**Example Prompt**:
+```
+You are an AI assistant for a digital nomad planner application. The user has team members in the following locations:
+- London, UK (GMT+0)
+- New York, USA (GMT-5)
+- Tokyo, Japan (GMT+9)
+- Sydney, Australia (GMT+11)
+
+The user is currently in Bali, Indonesia (GMT+8) and needs to schedule a 1-hour team meeting. Suggest three optimal time slots that maximize team member waking hours (7 AM - 10 PM local time). Include reasoning for each suggestion and identify which team members might be most inconvenienced by each option. Format as JSON with time slot options and reasoning.
+```
+
+### 4. Budget Analysis and Forecasting
+- **Task**: Implement AI capabilities for expense categorization, analysis, and budget optimization for digital nomads.
+- **Gemini Implementation**:
+  - Automate expense categorization between work and travel
+  - Generate insights on spending patterns
+  - Provide location-specific budget recommendations
+
+**Example Prompt**:
+```
+You are an AI assistant for a digital nomad planner application. Analyze this user's expense data for their month in Thailand:
+- Accommodation: $600 (co-living space with work area)
+- Co-working space membership: $150
+- Food: $450
+- Transportation: $200
+- Entertainment: $300
+- Internet upgrade: $50
+- Equipment (new monitor): $200
+
+Categorize each expense as either work-related, travel-related, or mixed. Provide a detailed analysis of their spending patterns, compare it to typical digital nomad costs in Thailand, and suggest three specific ways they could optimize their budget for their next destination in Vietnam. Format as JSON with expense analysis and recommendations.
+```
+
+### 5. Community Connection Assistant
+- **Task**: Create AI functionality that helps users find and connect with relevant digital nomad communities and events.
+- **Gemini Implementation**:
+  - Generate personalized community recommendations
+  - Create conversational interfaces for discovering events
+  - Provide networking suggestions based on user profile
+
+**Example Prompt**:
+```
+You are an AI assistant for a digital nomad planner application. The user has provided the following information:
+- Current location: Medellín, Colombia
+- Profession: UX designer
+- Interests: hiking, language exchange, design thinking
+- Duration of stay: 2 months
+- Networking goals: meet local designers and potential clients
+
+Recommend five specific community events or groups they should connect with in Medellín, including a detailed explanation of why each recommendation matches their profile, specific contact methods or locations, and best approaches for making meaningful connections. Format as JSON with structured recommendations.
+```
+
+### 6. Legal Resource Navigator
+- **Task**: Implement AI that can understand and answer questions about visa requirements, tax obligations, and work legality for digital nomads.
+- **Gemini Implementation**:
+  - Create a conversational interface for legal queries
+  - Generate clear explanations of complex legal requirements
+  - Provide structured information from authoritative sources
+
+**Example Prompt**:
+```
+You are an AI assistant for a digital nomad planner application. The user has asked:
+"I'm a US citizen planning to work remotely from Portugal for 3 months starting in June. What visa do I need, what are the tax implications, and am I legally allowed to work for my US company while there?"
+
+Provide comprehensive information about Portugal's relevant visa options, tax considerations, and work legality for digital nomads. Format your response with clear sections, highlighting key requirements, application processes, timelines, and authoritative sources where they can find official information. Make clear you're providing general information, not legal advice. Format as structured JSON with headers and detailed content for each section.
+```
+
+## Integration Requirements
+
+For all AI implementations:
+
+1. **Response Format**: All AI responses should be formatted in consistent JSON structures that can be parsed by the application frontend.
+
+2. **Conversation Memory**: The system should maintain context across user interactions using Gemini's conversation capabilities.
+
+3. **User Customization**: AI responses should incorporate user profile data and historical preferences when generating recommendations.
+
+4. **Source Attribution**: When providing legal or location-specific information, the system should cite authoritative sources.
+
+5. **Error Handling**: Implement graceful fallback responses when Gemini cannot provide specific information.
+
+## Technical Implementation Details
+
+1. **API Integration**:
+   - Use Gemini API with appropriate model selection based on task complexity
+   - Implement token usage monitoring and optimization
+   - Set up request caching where appropriate
+
+2. **Prompt Engineering**:
+   - Create a library of base prompts for each module
+   - Develop dynamic prompt construction methods that incorporate user context
+   - Implement prompt optimization based on response quality
+
+3. **Response Processing**:
+   - Develop parsers for structured JSON responses
+   - Implement validation logic to ensure response quality
+   - Create fallback handling for unexpected response formats
+
+4. **Conversational Flow**:
+   - Design conversation trees for complex user journeys
+   - Implement context management to maintain coherence across interactions
+   - Create natural conversation transitions between AI modules
+
+## Evaluation Metrics
+
+- Response accuracy (compared to ground truth data)
+- User satisfaction with recommendations (feedback collection)
+- Completion rate for AI-assisted tasks
+- Response time and system performance
+- User engagement with AI features
